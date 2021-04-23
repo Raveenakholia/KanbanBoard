@@ -1,14 +1,38 @@
-import React from 'react'
-import './TaskContainer.scss'
+import "./TaskContainer.scss";
+import Card from "Components/Task/Card";
 
-export default function TaskContainer(props) {
-   let toBeVisible= false;
-    return (
-        <div className="taskDiv">
-            <h2>{props.taskName}</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, sapiente! Quam debitis nam doloremque quia consectetur, aut veritatis quos nulla dignissimos cum dolorem. Fuga, provident. Esse at fugit doloremque numquam.</p>  
-        { props.taskName=="All Task"?toBeVisible=true:toBeVisible=false}
-        {toBeVisible== true?<><input/><button>Add A Task</button></>:null}
-        </div>
-    )
+export default function TaskContainer({
+  tasks,
+  headerName,
+  headerColor,
+  backgroundColor,
+  id,
+}) {
+  let toBeVisible = false;
+  return (
+    <div className="taskDiv" style={{ backgroundColor: backgroundColor }}>
+      <div className="task-header" style={{ backgroundColor: headerColor }}>
+        {headerName}
+      </div>
+
+      {tasks
+        .filter((current) => current.taskStage === id)
+        .map((task) => {
+          return (
+            <Card
+              id={task.id}
+              createdOn={task.creationDate}
+              desc={task.taskDesc}
+              headerColor={headerColor}
+            />
+          );
+        })}
+      {toBeVisible == true ? (
+        <>
+          <input />
+          <button>Add A Task</button>
+        </>
+      ) : null}
+    </div>
+  );
 }

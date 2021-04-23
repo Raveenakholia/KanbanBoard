@@ -1,27 +1,29 @@
-.taskDiv{
-    height: 60vh;
-    width: 25vw;
-    border: 2px solid whitesmoke;
-    margin-left: 2rem;
-    border-radius: 2rem;
-    p{
-        padding: 1px;
-        
-    }
-    h2{
-        color: whitesmoke
-    }
+.taskDiv {
+  height: 80vh;
+  width: 25vw;
+  margin-left: 2rem;
+  box-shadow: 10px 10px 5px #dcdcdc;
 
-    button{
-        background-color: #845460;
-        box-shadow: none;
-        color: whitesmoke;
-        padding: 2px;
-        margin: 2px;
-    }
-    input{
-        text-decoration: underline;
-        outline-style: none;
+  p {
+    padding: 1px;
+  }
+  .task-header {
+    height: 7vh;
+    line-height: 7vh;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+  }
 
-    }
+  button {
+    background-color: #845460;
+    box-shadow: none;
+    color: whitesmoke;
+    padding: 2px;
+    margin: 2px;
+  }
+  input {
+    text-decoration: underline;
+    outline-style: none;
+  }
 }
