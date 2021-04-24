@@ -2,6 +2,8 @@ import React from 'react'
 import  './Login.scss';
 import {FaUser} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
+import {Link} from 'react-router-dom';
+import {IoLogoFacebook} from 'react-icons/io';
 
 export default function Login() {
     return (
@@ -17,7 +19,10 @@ export default function Login() {
                 
                 
             </div>
-            <button type="button" name="login">Login</button>
+            <Link to="/DashBoard">
+            <button type="button" name="login" >Login</button>
+            </Link>
+            
         </div>
     )
 }
