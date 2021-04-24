@@ -9,8 +9,18 @@ export default function TaskContainer({
   id,
 }) {
   let toBeVisible = false;
+  const allowDrop =(ev)=>{
+    ev.preventDefault();
+   }
+
+   const drop=(ev)=> {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+  
   return (
-    <div className="taskDiv" style={{ backgroundColor: backgroundColor }}>
+    <div className="taskDiv"  onDrop={drop} onDragOver={allowDrop} style={{ backgroundColor: backgroundColor }}>
       <div className="task-header" style={{ backgroundColor: headerColor }}>
         {headerName}
       </div>
