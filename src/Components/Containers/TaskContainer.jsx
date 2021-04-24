@@ -24,7 +24,7 @@ export default function TaskContainer({
       <div className="task-header" style={{ backgroundColor: headerColor }}>
         {headerName}
       </div>
-
+      {headerName==="Pending" ?toBeVisible = true: toBeVisible = false}
       {tasks
         .filter((current) => current.taskStage === id)
         .map((task) => {
@@ -36,13 +36,14 @@ export default function TaskContainer({
               headerColor={headerColor}
             />
           );
-        })}
-      {toBeVisible == true ? (
-        <>
+        })
+        }
+      { toBeVisible == true ? (
+        <div className="addATaskDiv">
           <input />
           <button>Add A Task</button>
-        </>
-      ) : null}
+        </div>
+      ) : null }
     </div>
   );
 }

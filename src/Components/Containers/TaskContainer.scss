@@ -3,6 +3,7 @@
   width: 25vw;
   margin-left: 2rem;
   box-shadow: 10px 10px 5px #dcdcdc;
+  position: relative;
 
   p {
     padding: 1px;
@@ -26,4 +27,11 @@
     text-decoration: underline;
     outline-style: none;
   }
+  .addATaskDiv{
+    position: absolute;
+    bottom: 7px;
+    margin: 0.5rem
+  }
+ 
 }
+
