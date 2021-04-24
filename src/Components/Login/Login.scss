@@ -1,0 +1,30 @@
+.LoginDiv{
+    position: absolute;
+    height: 30rem;
+    width: 40rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    border: 2px solid burlywood;
+    box-shadow: 5px 5px 10px 1px #000;
+
+    button{
+        background-color: #1e6f5c;
+        color: white;
+        width: 50%;
+        height: 2.0rem;
+        margin-left: 2rem;
+    }
+    .inputDiv{
+        input{
+            height: 1.5rem;
+            width: 20rem;
+            
+        }
+        margin-bottom: 2.5rem;
+        
+    }
+}
+

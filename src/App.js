@@ -1,12 +1,18 @@
-import Container from "Components/Containers/Container";
-import Header from "Components/Header/Header";
+import ParentContainer from './Components/Containers/ParentContainer';
+import Login from './Components/Login/Login';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Container />
-    </div>
+    
+     <BrowserRouter>
+       <Switch>
+          <Route exact path="/"><Login/></Route>
+          <Route  path="/Dashboard"><ParentContainer/></Route>
+       </Switch>
+      </BrowserRouter>
+    
   );
 }
 
