@@ -9,7 +9,7 @@ export default function TaskContainer({
   id,
   handleTask
 }) {
-  let toBeVisible = false;
+  
   const allowDrop =(ev)=>{
     ev.preventDefault();
    }
@@ -32,7 +32,6 @@ export default function TaskContainer({
       <div className="task-header" style={{ backgroundColor: headerColor }}>
         {headerName}
       </div>
-      {headerName==="Pending" ?toBeVisible = true: toBeVisible = false}
       {tasks
         .filter((current) => current.taskStage === id)
         .map((task) => {
@@ -47,12 +46,12 @@ export default function TaskContainer({
           );
         })
         }
-      { toBeVisible == true ? (
-        <div className="addATaskDiv">
+      { headerName==="Pending" &&
+        <div className= "addATaskDiv">
           <input />
           <button>Add A Task</button>
         </div>
-      ) : null }
+}
     </div>
   );
 }
