@@ -7,6 +7,7 @@ export default function TaskContainer({
   headerColor,
   backgroundColor,
   id,
+  handleTask
 }) {
   let toBeVisible = false;
   const allowDrop =(ev)=>{
@@ -16,11 +17,18 @@ export default function TaskContainer({
    const drop=(ev)=> {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+   // ev.target.appendChild(document.getElementById(data));
+   const newTaskArray= tasks.map((curentData)=>{
+         if(curentData.id==data){
+          curentData.taskStage=id;
+         }
+         return curentData;
+    })
+    handleTask(newTaskArray);
   }
   
   return (
-    <div className="taskDiv"  onDrop={drop} onDragOver={allowDrop} style={{ backgroundColor: backgroundColor }}>
+    <div className="taskDiv" onDrop={drop} onDragOver={allowDrop} style={{ backgroundColor: backgroundColor }}>
       <div className="task-header" style={{ backgroundColor: headerColor }}>
         {headerName}
       </div>
@@ -31,6 +39,7 @@ export default function TaskContainer({
           return (
             <Card
               id={task.id}
+              key={task.id}
               createdOn={task.creationDate}
               desc={task.taskDesc}
               headerColor={headerColor}

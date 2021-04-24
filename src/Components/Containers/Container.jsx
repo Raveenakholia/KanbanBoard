@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Container.scss";
 import TaskContainer from "./TaskContainer";
 
@@ -23,13 +23,13 @@ export default function Container() {
       backgroundColor: "antiquewhite",
     },
   ];
-  const taskArray = [
+  const [taskArray,setTaskArray] = useState([
     {
       id: 1,
       taskDesc: "this is a sample task for in progress",
       taskStage: 2,
       creationDate: new Date().toDateString(),
-      assignedTo: "Gaurav",
+      assignedTo: "Raveena",
     },
     {
       id: 2,
@@ -52,17 +52,33 @@ export default function Container() {
       creationDate: new Date().toDateString(),
       assignedTo: "Gaurav",
     },
-  ];
+    {
+      id: 4,
+      taskDesc: "this is a sample task for completed",
+      taskStage: 3,
+      creationDate: new Date().toDateString(),
+      assignedTo: "Raveena",
+    },
+    {
+      id: 4,
+      taskDesc: "this is a sample task for completed",
+      taskStage: 1,
+      creationDate: new Date().toDateString(),
+      assignedTo: "Gaurav",
+    },
+  ]);
   return (
     <div className="container">
       {taskStages.map((stage) => {
         return (
           <TaskContainer
             id={stage.id}
+            key={stage.id}
             tasks={taskArray}
             headerName={stage.headerName}
             headerColor={stage.headerColor}
             backgroundColor={stage.backgroundColor}
+            handleTask={setTaskArray}
           />
         );
       })}
